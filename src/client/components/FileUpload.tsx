@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { useFileUpload } from '../hooks/useFileUpload';
 
 import { Dropzone, FileUploadList } from './';
-import '../FileUpload.scss';
+import '../styles';
 
 export const FileUpload = () => {
     const [isDragging, setIsDragging] = useState(false);

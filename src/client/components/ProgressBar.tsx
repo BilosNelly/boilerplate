@@ -1,5 +1,5 @@
 import React from 'react';
-import '../ProgressBar.scss';
+import '../styles';
 
 interface ProgressBarProps {
     fileName: string;
