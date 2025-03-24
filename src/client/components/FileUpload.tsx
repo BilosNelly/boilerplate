@@ -1,13 +1,15 @@
 import { useCallback, useState } from 'react';
 
 import { useFileUpload } from '../hooks/useFileUpload';
+import { useStoredFiles } from '../hooks/useStoredFiles';
 
-import { Dropzone, FileUploadList } from './';
+import { Dropzone, FileUploadList, StoredFilesList } from './';
 import '../styles';
 
 export const FileUpload = () => {
     const [isDragging, setIsDragging] = useState(false);
     const { fileStatuses, uploadFile } = useFileUpload();
+    const { storedFiles, fetchStoredFiles } = useStoredFiles();
 
     const handleDrop = useCallback(
         async (e: React.DragEvent<HTMLDivElement>) => {
@@ -30,17 +32,23 @@ export const FileUpload = () => {
     return (
         <div className="file-upload">
             <Dropzone
-                title={'Drop files here or click to upload'}
-                infoCopy={'Supported formats: PDF, Word, PowerPoint, Excel, etc.'}
+                title="Drop files here or click to upload"
+                infoCopy="Supported formats: PDF, Word, PowerPoint, Excel, etc."
                 onDrop={handleDrop}
                 onChange={handleFileChange}
                 isDragging={isDragging}
                 setIsDragging={setIsDragging}
             />
             <div className="file-upload__header">
-                <h2 className="file-upload__header-title">Uploaded Files</h2>
+                <h2 className="file-upload__header-title">Current status of files..</h2>
             </div>
             <FileUploadList fileStatuses={fileStatuses} />
+            <div className="stored-files">
+                <button onClick={fetchStoredFiles} className="stored-files__button">
+                    Show uploaded files
+                </button>
+                <StoredFilesList files={storedFiles} />
+            </div>
         </div>
     );
 };
