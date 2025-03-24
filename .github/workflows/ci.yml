@@ -24,14 +24,14 @@ jobs:
                   node-version-file: '.nvmrc'
                   cache: 'npm'
 
-            - name: Remove any .npmrc files that may have wrong registry
-              run: rm -f ~/.npmrc
+            # - name: Remove any .npmrc files that may have wrong registry
+            #   run: rm -f ~/.npmrc
 
-            - name: Clear npm cache
-              run: npm cache clean --force
+            # - name: Clear npm cache
+            #   run: npm cache clean --force
 
-            - name: Install dependencies
-              run: npm ci --registry=https://registry.npmjs.org/
+            # - name: Install dependencies
+            #   run: npm ci --registry=https://registry.npmjs.org/
 
             - name: Lint code
               run: npm run lint
