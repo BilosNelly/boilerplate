@@ -1,15 +1,16 @@
-// components/Dropzone.tsx
 import classNames from 'classnames';
 import React, { type ChangeEvent, type DragEvent } from 'react';
 
 interface DropzoneProps {
+    title: string;
+    infoCopy: string;
+    isDragging: boolean;
     onDrop: (e: DragEvent<HTMLDivElement>) => void;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    isDragging: boolean;
     setIsDragging: (dragging: boolean) => void;
 }
 
-export const Dropzone: React.FC<DropzoneProps> = ({ onDrop, onChange, isDragging, setIsDragging }) => (
+export const Dropzone: React.FC<DropzoneProps> = ({ title, infoCopy, isDragging, onDrop, onChange, setIsDragging }) => (
     <div
         role="button"
         tabIndex={0}
@@ -25,8 +26,8 @@ export const Dropzone: React.FC<DropzoneProps> = ({ onDrop, onChange, isDragging
     >
         <input type="file" id="fileInput" multiple className="file-upload__input" onChange={onChange} />
         <label htmlFor="fileInput" className="file-upload__label">
-            <div className="file-upload__label-title">Drop files here or click to upload</div>
-            <div className="file-upload__label-hint">Supported formats: PDF, Word, PowerPoint, Excel, and more</div>
+            <div className="file-upload__label-title">{title}</div>
+            <div className="file-upload__label-hint">{infoCopy}</div>
         </label>
     </div>
 );

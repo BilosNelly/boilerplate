@@ -2,8 +2,7 @@ import { useCallback, useState } from 'react';
 
 import { useFileUpload } from '../hooks/useFileUpload';
 
-import { Dropzone } from './DropZone';
-import { FileUploadList } from './FileUploadList';
+import { Dropzone, FileUploadList } from './';
 import '../FileUpload.scss';
 
 export const FileUpload = () => {
@@ -31,6 +30,8 @@ export const FileUpload = () => {
     return (
         <div className="file-upload">
             <Dropzone
+                title={'Drop files here or click to upload'}
+                infoCopy={'Supported formats: PDF, Word, PowerPoint, Excel, etc.'}
                 onDrop={handleDrop}
                 onChange={handleFileChange}
                 isDragging={isDragging}

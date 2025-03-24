@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react';
 
-import { FileUpload } from './components/FileUpload';
+import { FileUpload } from './components';
 
 export const App = (): ReactElement => {
     return (

@@ -1,7 +1,6 @@
-// components/FileUploadList.tsx
 import React from 'react';
 
-import { ProgressBar } from './ProgressBar';
+import { ProgressBar } from './';
 
 interface FileStatus {
     file: File;
